@@ -1,7 +1,7 @@
 package com.questions.populator;
 
-import com.questions.data.ProductData;
 import de.hybris.bootstrap.annotations.UnitTest;
+import de.hybris.platform.commercefacades.product.data.ProductData;
 import de.hybris.platform.converters.Populator;
 import de.hybris.platform.core.model.product.ProductModel;
 import org.junit.Test;

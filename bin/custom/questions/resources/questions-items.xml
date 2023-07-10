@@ -29,7 +29,7 @@
                 <attribute qualifier="code" type="java.lang.String">
                     <persistence type="property"/>
                     <modifiers read="true" write="true" optional="false" unique="true"/>
-                    <defaultvalue>1</defaultvalue>
+                    <defaultvalue/>
                 </attribute>
                 <attribute qualifier="question" type="java.lang.String">
                     <persistence type="property"/>

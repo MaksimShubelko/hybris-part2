@@ -1,9 +1,9 @@
 package com.questions.controllers.cms;
 
 import com.questions.controllers.QuestionsControllerConstants;
-import com.questions.data.ProductData;
 import com.questions.facade.impl.CustomProductFacadeImpl;
 import de.hybris.platform.addonsupport.controllers.cms.AbstractCMSAddOnComponentController;
+import de.hybris.platform.commercefacades.product.data.ProductData;
 import de.hybris.platform.core.model.product.ProductModel;
 import org.questions.model.QuestionsCMSComponentModel;
 import org.springframework.stereotype.Controller;
@@ -24,13 +24,14 @@ public class QuestionsCMSComponentController extends AbstractCMSAddOnComponentCo
     @Override
     protected void fillModel(HttpServletRequest request, Model model, QuestionsCMSComponentModel component) {
         final ProductModel currentProduct = getRequestContextData(request).getProduct();
-        if (Objects.nonNull(currentProduct)) {
-        final int numberQuestionsToShow = component.getNumberOfQuestionsToShow();
-        ProductData productData = customProductFacade.getProductWithQuestions(currentProduct);
 
-        model.addAttribute("questions", productData.getQuestions());
-        model.addAttribute("fontSize", component.getFontSize());
-        model.addAttribute("numberOfQuestionsToShow", numberQuestionsToShow);
+        if (Objects.nonNull(currentProduct)) {
+            final int numberQuestionsToShow = component.getNumberOfQuestionsToShow();
+            ProductData productData = customProductFacade.getProductWithQuestions(currentProduct);
+
+            model.addAttribute("questions", productData.getQuestions());
+            model.addAttribute("fontSize", component.getFontSize());
+            model.addAttribute("numberOfQuestionsToShow", numberQuestionsToShow);
         }
     }
 

@@ -1,8 +1,8 @@
 package com.questions.facade.impl;
 
 
-import com.questions.data.ProductData;
 import com.questions.facade.CustomProductFacade;
+import de.hybris.platform.commercefacades.product.data.ProductData;
 import de.hybris.platform.core.model.product.ProductModel;
 import de.hybris.platform.product.ProductService;
 import de.hybris.platform.servicelayer.dto.converter.Converter;
