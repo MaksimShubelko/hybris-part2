@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+-->
+<!--
+	ATTENTION: This is just an example file. You have to edit it according to your needs.
+-->
+
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="items.xsd">
+
+    <relations>
+        <relation code="Product2Question" localized="false">
+            <sourceElement type="Product" qualifier="product" cardinality="one">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </sourceElement>
+            <targetElement type="Question" qualifier="questions" collectiontype="set" cardinality="many">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </targetElement>
+        </relation>
+    </relations>
+
+    <itemtypes>
+        <itemtype code="Question"
+                  generate="true"
+                  autocreate="true"
+                  jaloclass="org.questions.jalo.Question">
+            <deployment table="Questions" typecode="30001"/>
+            <attributes>
+                <attribute qualifier="code" type="java.lang.String">
+                    <persistence type="property"/>
+                    <modifiers read="true" write="true" optional="false" unique="true"/>
+                    <defaultvalue/>
+                </attribute>
+                <attribute qualifier="question" type="java.lang.String">
+                    <persistence type="property"/>
+                    <modifiers read="true" write="true" optional="false"/>
+                    <defaultvalue/>
+                </attribute>
+                <attribute qualifier="questionCustomer" type="Customer">
+                    <persistence type="property"/>
+                    <modifiers read="true" write="true" optional="false"/>
+                    <defaultvalue/>
+                </attribute>
+                <attribute qualifier="answer" type="java.lang.String">
+                    <persistence type="property"/>
+                    <modifiers read="true" write="true" optional="true"/>
+                </attribute>
+                <attribute qualifier="answerCustomer" type="Customer">
+                    <persistence type="property"/>
+                    <modifiers read="true" write="true" optional="true"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="QuestionsCMSComponent"
+                  extends="AbstractCMSComponent"
+                  generate="true"
+                  autocreate="true"
+                  abstract="false"
+                  jaloclass="org.questions.jalo.QuestionsCMSComponent">
+            <deployment table="QuestionsCMSComponent" typecode="30002"/>
+            <attributes>
+                <attribute qualifier="numberOfQuestionsToShow" type="java.lang.Integer">
+                    <modifiers read="true" write="true" unique="false" optional="false"/>
+                    <persistence type="property"/>
+                    <defaultvalue>3</defaultvalue>
+                </attribute>
+                <attribute qualifier="fontSize" type="java.lang.Integer">
+                    <modifiers read="true" write="true" unique="false" optional="false"/>
+                    <defaultvalue>16</defaultvalue>
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+    </itemtypes>
+</items>
