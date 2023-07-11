@@ -41,9 +41,6 @@
     <alias name="defaultQuestionPopulator" alias="questionPopulator"/>
     <bean class="com.questions.populator.QuestionPopulator" id="defaultQuestionPopulator"/>
 
-    <alias name="defaultCustomProductPopulator" alias="customProductPopulator"/>
-    <bean class="com.questions.populator.CustomProductPopulator" id="defaultCustomProductPopulator"/>
-
     <alias name="defaultQuestionConverter" alias="questionConverter"/>
     <bean id="defaultQuestionConverter" parent="abstractPopulatingConverter">
         <property name="targetClass" value="com.questions.data.QuestionData"/>
@@ -54,17 +51,12 @@
         </property>
     </bean>
 
-    <alias name="defaultCustomProductConverter" alias="customProductConverter"/>
-    <bean id="defaultCustomProductConverter" parent="abstractPopulatingConverter">
-        <property name="targetClass" value="com.questions.data.ProductData"/>
+    <alias name="defaultProductConfiguredPopulator" alias="productConfiguredPopulator"/>
+    <bean id="defaultProductConfiguredPopulator" class="de.hybris.platform.commercefacades.converter.impl.DefaultConfigurablePopulator">
         <property name="populators">
-            <list>
-                <ref bean="customProductPopulator"/>
-            </list>
+            <map key-type="de.hybris.platform.commercefacades.product.ProductOption" merge="true">
+                <entry key="QUESTIONS" value-ref="questionPopulator"/>
+            </map>
         </property>
     </bean>
-
-    <alias name="defaultCustomProductFacade" alias="customProductFacade"/>
-    <bean class="com.questions.facade.impl.CustomProductFacadeImpl" id="defaultCustomProductFacade"/>
-
 </beans>

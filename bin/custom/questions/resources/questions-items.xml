@@ -8,6 +8,7 @@
 
 <items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="items.xsd">
+
     <relations>
         <relation code="Product2Question" localized="false">
             <sourceElement type="Product" qualifier="product" cardinality="one">
