@@ -31,8 +31,9 @@ public class QuestionsCMSComponentController extends AbstractCMSAddOnComponentCo
     @Override
     protected void fillModel(HttpServletRequest request, Model model, QuestionsCMSComponentModel component) {
         final ProductModel currentProduct = getRequestContextData(request).getProduct();
-        List<ProductOption> options = new ArrayList<>(List.of(QUESTIONS));
+
         if (Objects.nonNull(currentProduct)) {
+            List<ProductOption> options = new ArrayList<>(List.of(QUESTIONS));
             final int numberQuestionsToShow = component.getNumberOfQuestionsToShow();
             ProductData productData = productFacade.getProductForCodeAndOptions(currentProduct.getCode(), options);
 
