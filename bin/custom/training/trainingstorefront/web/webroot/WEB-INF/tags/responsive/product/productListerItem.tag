@@ -40,6 +40,9 @@
 			<ycommerce:testId code="searchPage_price_label_${product.code}">
 				<div class="product__listing--price"><product:productListerItemPrice product="${product}"/></div>
 			</ycommerce:testId>
+			<c:if test="${product.questionsCount != null}">
+				Questions: ${product.questionsCount}
+			</c:if>
 		</div>
 
 		<c:if test="${not empty product.summary}">

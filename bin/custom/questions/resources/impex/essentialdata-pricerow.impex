@@ -1,0 +1,29 @@
+$contentCatalog=electronicsContentCatalog
+$contentCatalogName=Electronics Content Catalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$productCatalog=electronicsProductCatalog
+$productCatalogName=Electronics Product Catalog
+$productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Online'])[unique=true,default=$productCatalog:Online]
+$picture=media(code, $contentCV);
+$image=image(code, $contentCV);
+$media=media(code, $contentCV);
+$page=page(uid, $contentCV);
+$contentPage=contentPage(uid, $contentCV);
+$product=product(code, $productCV)
+$category=category(code, $productCV)
+$siteResource=jar:de.hybris.platform.electronicsstore.constants.ElectronicsstoreConstants&/electronicsstore/import/sampledata/contentCatalogs/$contentCatalog
+$productResource=jar:de.hybris.platform.electronicsstore.constants.ElectronicsstoreConstants&/electronicsstore/import/sampledata/productCatalogs/$productCatalog
+$jarResourceCms=jar:de.hybris.platform.electronicsstore.constants.ElectronicsstoreConstants&/electronicsstore/import/sampledata/cockpits/cmscockpit
+
+
+#Personalizing price
+
+
+INSERT_UPDATE UserPriceGroup; code[unique = true]
+                            ; priceGroup_1
+
+INSERT_UPDATE PriceRow;$product[unique=true] ; ug(code)[allownull=true] ; net[unique=true][default=false] ; currency(isocode) ; price ; unit(code)[default=pieces]; minqtd; unitFactor
+                      ;300938                ; priceGroup_1             ;          			              ; USD	  	          ; 114,12;                           ;   10  ; 1
+
+INSERT_UPDATE Customer; uid[unique=true] ; Europe1PriceFactory_UPG(code); name
+                      ; vipCustomer        ; priceGroup_1               ; vipCustomer
