@@ -60,6 +60,9 @@
 
     <bean class="com.questions.provider.ProductQuestionsCountProvider" id="productQuestionsCountProvider"/>
 
+    <bean class="com.questions.provider.ProductQuestionsCountFacetDisplayNameProvider"
+          id="productQuestionsCountFacetDisplayNameProvider"/>
+
     <alias name="customSearchResultProductPopulator" alias="commerceSearchResultProductPopulator"/>
     <bean id="customSearchResultProductPopulator"
           class="com.questions.populator.CustomSearchResultVariantProductPopulator"
