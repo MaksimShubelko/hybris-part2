@@ -51,12 +51,22 @@
         </property>
     </bean>
 
-    <alias name="defaultProductConfiguredPopulator" alias="productConfiguredPopulator"/>
-    <bean id="defaultProductConfiguredPopulator" class="de.hybris.platform.commercefacades.converter.impl.DefaultConfigurablePopulator">
-        <property name="populators">
-            <map key-type="de.hybris.platform.commercefacades.product.ProductOption" merge="true">
-                <entry key="QUESTIONS" value-ref="questionPopulator"/>
-            </map>
-        </property>
+    <bean parent="configurablePopulatorModification">
+        <property name="target" ref="productConfiguredPopulator"/>
+        <property name="keyType" value="de.hybris.platform.commercefacades.product.ProductOption"/>
+        <property name="key" value="QUESTIONS"/>
+        <property name="add" ref="questionPopulator"/>
     </bean>
+
+    <bean class="com.questions.provider.ProductQuestionsCountProvider" id="productQuestionsCountProvider"/>
+
+    <bean class="com.questions.provider.ProductQuestionsCountFacetDisplayNameProvider"
+          id="productQuestionsCountFacetDisplayNameProvider"/>
+
+    <alias name="customSearchResultProductPopulator" alias="commerceSearchResultProductPopulator"/>
+    <bean id="customSearchResultProductPopulator"
+          class="com.questions.populator.CustomSearchResultVariantProductPopulator"
+    parent="variantCommerceSearchResultProductPopulator">
+    </bean>
+
 </beans>
