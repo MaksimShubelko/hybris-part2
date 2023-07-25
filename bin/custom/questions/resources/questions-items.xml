@@ -20,6 +20,7 @@
         </relation>
     </relations>
 
+
     <itemtypes>
         <itemtype code="Question"
                   generate="true"
@@ -50,6 +51,10 @@
                     <persistence type="property"/>
                     <modifiers read="true" write="true" optional="true"/>
                 </attribute>
+                <attribute qualifier="approved" type="boolean">
+                    <modifiers read="true" write="true" optional="true"/>
+                    <persistence type="property"/>
+                </attribute>
             </attributes>
         </itemtype>
 
@@ -59,7 +64,6 @@
                   autocreate="true"
                   abstract="false"
                   jaloclass="org.questions.jalo.QuestionsCMSComponent">
-            <deployment table="QuestionsCMSComponent" typecode="30002"/>
             <attributes>
                 <attribute qualifier="numberOfQuestionsToShow" type="java.lang.Integer">
                     <modifiers read="true" write="true" unique="false" optional="false"/>
@@ -69,6 +73,37 @@
                 <attribute qualifier="fontSize" type="java.lang.Integer">
                     <modifiers read="true" write="true" unique="false" optional="false"/>
                     <defaultvalue>16</defaultvalue>
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="SendQuestionsCronJob"
+                  extends="CronJob"
+                  autocreate="true"
+                  generate="true"
+                  jaloclass="com.questions.jalo.SendQuestionsCronJob">
+            <attributes>
+                <attribute qualifier="emailAddressSendTo" type="java.lang.String">
+                    <modifiers read="true" write="true" unique="false" optional="false"/>
+                    <defaultvalue>shubelkom@gmail.com</defaultvalue>
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="TrainingEmailProcess"
+                  autocreate="true"
+                  generate="true"
+                  jaloclass="com.questions.jalo.TrainingEmailProcess"
+                  extends="StorefrontCustomerProcess">
+            <attributes>
+                <attribute qualifier="emailAddressSendTo" type="java.lang.String">
+                    <modifiers read="true" write="true" unique="false" optional="true"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="content" type="java.lang.String">
+                    <modifiers read="true" write="true" unique="false" optional="true"/>
                     <persistence type="property"/>
                 </attribute>
             </attributes>

@@ -26,6 +26,7 @@ public class QuestionPopulator implements Populator<ProductModel, ProductData> {
         QuestionData questionData = new QuestionData();
         questionData.setQuestion(questionModel.getQuestion());
         questionData.setAnswer(questionModel.getAnswer());
+        questionData.setApproved(questionModel.isApproved());
         return questionData;
     }
 }

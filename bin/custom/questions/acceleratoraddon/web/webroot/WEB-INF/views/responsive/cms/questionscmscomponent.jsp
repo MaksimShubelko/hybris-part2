@@ -15,11 +15,13 @@
                 <br>
                 <br>
 
+                <c:set var="shownQuestons" value="0"/>
                 <c:forEach var="question" items="${questions}" varStatus="loop">
-                    <c:if test="${loop.count <= numberOfQuestionsToShow}">
+                    <c:if test="${question.getApproved() == true and shownQuestions <= numberOfQuestionsToShow}">
                         <br>Q: ${question.getQuestion()}
                         <br>A: ${question.getAnswer()}
                         <br>
+                        <c:set var="shownQuestons" value="${shownQuestons + 1}"/>
                     </c:if>
                 </c:forEach>
             </div>

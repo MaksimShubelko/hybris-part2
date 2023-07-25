@@ -69,4 +69,31 @@
     parent="variantCommerceSearchResultProductPopulator">
     </bean>
 
+    <bean class="com.questions.listener.TrainingEmailEventListener" id="trainingEmailEventListener">
+        <property name="tenantService" ref="defaultTenantService"/>
+        <property name="clusterService" ref="clusterService"/>
+    </bean>
+
+    <bean class="com.questions.dao.impl.QuestionDaoImpl" id="questionDao"/>
+
+    <bean class="com.questions.service.impl.QuestionServiceImpl" id="questionService"/>
+
+    <bean class="com.questions.job.SendQuestionsJob" id="sendQuestionsJob">
+        <property name="flexibleSearchService" ref="defaultFlexibleSearchService"/>
+        <property name="modelService" ref="modelService"/>
+        <property name="sessionService" ref="defaultSessionService"/>
+    </bean>
+
+    <bean id="trainingEmailProcessDefinitionResource"
+          class="de.hybris.platform.processengine.definition.ProcessDefinitionResource">
+        <property name="resource" value="classpath:/questions/processes/trainingEmailProcess.xml"/>
+    </bean>
+
+    <bean id="generateTrainingEmailAction" parent="abstractGenerateEmailAction">
+        <property name="frontendTemplateName" value="TrainingEmailTemplate"/>
+    </bean>
+
+    <bean class="com.questions.context.TrainingEmailContext" id="trainingEmailContext" parent="abstractEmailContext" scope="prototype"/>
+
+
 </beans>

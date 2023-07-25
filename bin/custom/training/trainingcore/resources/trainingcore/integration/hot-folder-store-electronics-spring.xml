@@ -37,4 +37,5 @@
 		<property name="net" value="false" />
 		<property name="storeBaseDirectory" ref="baseDirectoryElectronics" />
 	</bean>
+
 </beans>

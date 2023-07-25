@@ -6,6 +6,7 @@ import de.hybris.platform.solrfacetsearch.config.IndexedProperty;
 import de.hybris.platform.solrfacetsearch.provider.FieldNameProvider;
 import de.hybris.platform.solrfacetsearch.provider.FieldValue;
 import de.hybris.platform.solrfacetsearch.provider.FieldValueProvider;
+import org.questions.model.QuestionModel;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
@@ -43,6 +44,9 @@ public class ProductQuestionsCountProvider implements FieldValueProvider, Serial
     }
 
     private int getQuestionsCount(ProductModel product) {
-        return product.getQuestions().size();
+        return (int) product.getQuestions()
+                .stream()
+                .filter(QuestionModel::isApproved)
+                .count();
     }
 }

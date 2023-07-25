@@ -1,0 +1,9 @@
+INSERT_UPDATE ServicelayerJob; code[unique=true]; springId
+                             ; sendQuestionsJob ; sendQuestionsJob
+
+INSERT_UPDATE SendQuestionsCronJob; code[unique=true]            ; job(code)                    ; singleExecutable ; sessionLanguage(isocode); emailAddressSendTo
+                     ; sendQuestionsCronJob                      ; sendQuestionsJob             ; false            ;   en                    ; shubelkom@gmail.com
+
+INSERT_UPDATE Trigger; cronJob(code)[unique=true]        ; cronExpression
+                     ; sendQuestionsCronJob         ; 0/59 * * * * ? *
+

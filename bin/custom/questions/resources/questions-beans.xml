@@ -23,6 +23,7 @@
 		<property name="questionCustomer" type="de.hybris.platform.commercefacades.user.data.CustomerData"/>
 		<property name="answer" type="String"/>
 		<property name="answerCustomer" type="de.hybris.platform.commercefacades.user.data.CustomerData"/>
+		<property name="approved" type="Boolean"/>
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.product.data.ProductData">
