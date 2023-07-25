@@ -64,6 +64,7 @@ public class SendQuestionsJob extends AbstractJobPerformable<SendQuestionsCronJo
             trainingEmailProcessModel.setLanguage(commerceCommonI18NService.getCurrentLanguage());
             trainingEmailProcessModel.setQuestions(questions);
             modelService.save(trainingEmailProcessModel);
+            modelService.save(cronJobModel);
             businessProcessService.startProcess(trainingEmailProcessModel);
         }
 
