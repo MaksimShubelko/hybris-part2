@@ -69,11 +69,6 @@
     parent="variantCommerceSearchResultProductPopulator">
     </bean>
 
-    <bean class="com.questions.listener.TrainingEmailEventListener" id="trainingEmailEventListener">
-        <property name="tenantService" ref="defaultTenantService"/>
-        <property name="clusterService" ref="clusterService"/>
-    </bean>
-
     <bean class="com.questions.dao.impl.QuestionDaoImpl" id="questionDao"/>
 
     <bean class="com.questions.service.impl.QuestionServiceImpl" id="questionService"/>

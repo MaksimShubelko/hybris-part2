@@ -27,6 +27,7 @@ public class QuestionDaoImpl implements QuestionDao {
         FlexibleSearchQuery flexibleSearchQuery = new FlexibleSearchQuery(FIND_QUESTIONS_BY_MIN_CREATION_DATE);
         flexibleSearchQuery.addQueryParameter("minCreationDate", minCreationDate
                 .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+
         return flexibleSearchService.<QuestionModel>search(flexibleSearchQuery).getResult();
     }
 }

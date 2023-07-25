@@ -10,7 +10,17 @@ public class Question extends GeneratedQuestion
 {
 	@SuppressWarnings("unused")
 	private static final Logger LOG = Logger.getLogger( Question.class.getName() );
-	
+
+	@Override
+	public Boolean isApproved(SessionContext ctx) {
+		return null;
+	}
+
+	@Override
+	public void setApproved(SessionContext ctx, Boolean value) {
+
+	}
+
 	@Override
 	protected Item createItem(final SessionContext ctx, final ComposedType type, final ItemAttributeMap allAttributes) throws JaloBusinessException
 	{

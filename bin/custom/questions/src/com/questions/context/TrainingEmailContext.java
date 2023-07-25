@@ -7,12 +7,14 @@ import de.hybris.platform.basecommerce.model.site.BaseSiteModel;
 import de.hybris.platform.core.model.c2l.LanguageModel;
 import de.hybris.platform.core.model.user.CustomerModel;
 import de.hybris.platform.servicelayer.model.ModelService;
+import org.questions.model.QuestionModel;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 public class TrainingEmailContext extends AbstractEmailContext<TrainingEmailProcessModel> {
 
-    private String content;
+    private List<QuestionModel> questions;
 
     @Resource
     private ModelService modelService;
@@ -21,7 +23,7 @@ public class TrainingEmailContext extends AbstractEmailContext<TrainingEmailProc
         super.init(processModel, emailPageModel);
         put(EMAIL, processModel.getEmailAddressSendTo());
         put(DISPLAY_NAME, "System");
-        setContent(processModel.getContent());
+        setQuestions(processModel.getQuestions());
 
     }
 
@@ -40,12 +42,11 @@ public class TrainingEmailContext extends AbstractEmailContext<TrainingEmailProc
         return businessProcessModel.getLanguage();
     }
 
-    public String getContent() {
-        return content;
+    public List<QuestionModel> getQuestions() {
+        return questions;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setQuestions(List<QuestionModel> questions) {
+        this.questions = questions;
     }
-
 }

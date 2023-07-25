@@ -17,6 +17,12 @@
 
 </head>
 <body>
-    ${ctx.content}
+    #foreach($question in ${ctx.questions})
+    <br>Product code: $question.product.code
+    <br>Question code: $question.code
+    <br>Q: $question.question
+    <br>A: $question.answer
+    <br>
+    #end
 </body>
 </html>

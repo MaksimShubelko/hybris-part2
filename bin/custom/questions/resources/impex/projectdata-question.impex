@@ -17,5 +17,5 @@ $jarResourceCms=jar:de.hybris.platform.electronicsstore.constants.Electronicssto
 
 
 INSERT_UPDATE Question; code[unique=true]     ; question                ; questionCustomer(name); answer    ; answerCustomer(name); $product; approved
-                      ; question_1       ; What is the memory capacity? ; Anonymous             ; 32 GB     ; Anonymous           ; 300938; 1
-                      ; question_2       ; What is the memory weight?   ; Anonymous             ; 175 gr    ; Anonymous           ; 300938; 1
+                      ; question_1       ; What is the memory capacity? ; Anonymous             ; 32 GB     ; Anonymous           ; 300938; true
+                      ; question_2       ; What is the memory weight?   ; Anonymous             ; 175 gr    ; Anonymous           ; 300938; true
