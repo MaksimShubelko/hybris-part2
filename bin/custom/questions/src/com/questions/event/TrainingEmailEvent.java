@@ -4,7 +4,6 @@ import de.hybris.platform.servicelayer.event.events.AbstractEvent;
 import org.questions.model.QuestionModel;
 
 import java.util.List;
-import java.util.Set;
 
 public class TrainingEmailEvent extends AbstractEvent {
 

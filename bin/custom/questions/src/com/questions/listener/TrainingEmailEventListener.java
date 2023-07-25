@@ -9,7 +9,6 @@ import de.hybris.platform.servicelayer.keygenerator.KeyGenerator;
 import de.hybris.platform.servicelayer.model.ModelService;
 import de.hybris.platform.site.BaseSiteService;
 import de.hybris.platform.store.services.BaseStoreService;
-import org.apache.log4j.Logger;
 import org.questions.model.QuestionModel;
 
 import javax.annotation.Resource;
