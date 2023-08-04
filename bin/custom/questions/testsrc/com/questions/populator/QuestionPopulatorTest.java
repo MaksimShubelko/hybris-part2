@@ -1,8 +1,9 @@
 package com.questions.populator;
 
-import com.questions.data.QuestionData;
 import de.hybris.bootstrap.annotations.UnitTest;
+import de.hybris.platform.commercefacades.product.data.ProductData;
 import de.hybris.platform.converters.Populator;
+import de.hybris.platform.core.model.product.ProductModel;
 import org.junit.Test;
 import org.questions.model.QuestionModel;
 
@@ -13,15 +14,17 @@ public class QuestionPopulatorTest {
 
     @Test
     public void populate() {
+        ProductModel productModel = new ProductModel();
         QuestionModel questionModel = new QuestionModel();
         questionModel.setQuestion("question");
         questionModel.setAnswer("answer");
-        Populator<QuestionModel, QuestionData> populator = new QuestionPopulator();
-        QuestionData questionData = new QuestionData();
+        productModel.getQuestions().add(questionModel);
+        Populator<ProductModel, ProductData> populator = new QuestionPopulator();
+        ProductData productData = new ProductData();
 
-        populator.populate(questionModel, questionData);
+        populator.populate(productModel, productData);
 
-        assertEquals("question", questionData.getQuestion());
-        assertEquals("answer", questionData.getAnswer());
+        assertEquals("question", productData.getQuestions().get(0).getQuestion());
+        assertEquals("answer", productData.getQuestions().get(0).getAnswer());
     }
 }

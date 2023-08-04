@@ -21,8 +21,8 @@ INSERT_UPDATE QuestionsCMSComponent ; $contentCV[unique=true] ; uid[unique=true]
 INSERT_UPDATE ContentSlotName ; name[unique=true]; template(uid,$contentCV)[unique=true][default='ProductDetailsPageTemplate'] ; validComponentTypes(code); compTypeGroup(code)
                               ; Section5         ;                                                                             ;                          ; wide
 
-INSERT_UPDATE ContentSlot ; $contentCV[unique=true]; uid[unique=true]; name      ; active
-                          ;                        ; Section5Slot    ; Questions ; true
+INSERT_UPDATE ContentSlot ; $contentCV[unique=true]; uid[unique=true]     ; name      ; active
+                          ;                   ; Section5Slot    ; Questions ; true
 
 INSERT_UPDATE ContentSlotForTemplate ; $contentCV[unique=true]; uid[unique=true]        ; position[unique=true]; pageTemplate(uid,$contentCV)[unique=true][default='ProductDetailsPageTemplate']; contentSlot(uid,$contentCV)[unique=true]; allowOverwrite
                                      ;                        ; Section5-ProductDetails ; Section5             ;                                                                                ; Section5Slot     ; true
