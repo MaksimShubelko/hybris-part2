@@ -5,7 +5,7 @@ import de.hybris.platform.jalo.JaloBusinessException;
 import de.hybris.platform.jalo.SessionContext;
 import de.hybris.platform.jalo.type.ComposedType;
 import org.apache.log4j.Logger;
-import org.questions.jalo.GeneratedQuestionsCMSComponent;
+import com.questions.jalo.GeneratedQuestionsCMSComponent;
 
 public class QuestionsCMSComponent extends GeneratedQuestionsCMSComponent
 {

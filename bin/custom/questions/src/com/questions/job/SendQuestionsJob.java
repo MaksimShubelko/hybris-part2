@@ -14,7 +14,7 @@ import de.hybris.platform.servicelayer.keygenerator.KeyGenerator;
 import de.hybris.platform.servicelayer.model.ModelService;
 import de.hybris.platform.site.BaseSiteService;
 import de.hybris.platform.store.services.BaseStoreService;
-import org.questions.model.QuestionModel;
+import com.questions.model.QuestionModel;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;

@@ -7,7 +7,7 @@ import de.hybris.platform.basecommerce.model.site.BaseSiteModel;
 import de.hybris.platform.core.model.c2l.LanguageModel;
 import de.hybris.platform.core.model.user.CustomerModel;
 import de.hybris.platform.servicelayer.model.ModelService;
-import org.questions.model.QuestionModel;
+import com.questions.model.QuestionModel;
 
 import javax.annotation.Resource;
 import java.util.List;

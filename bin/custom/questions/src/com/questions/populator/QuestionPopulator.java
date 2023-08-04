@@ -5,7 +5,7 @@ import de.hybris.platform.commercefacades.product.data.ProductData;
 import de.hybris.platform.converters.Populator;
 import de.hybris.platform.core.model.product.ProductModel;
 import de.hybris.platform.servicelayer.dto.converter.ConversionException;
-import org.questions.model.QuestionModel;
+import com.questions.model.QuestionModel;
 
 import java.util.List;
 import java.util.stream.Collectors;

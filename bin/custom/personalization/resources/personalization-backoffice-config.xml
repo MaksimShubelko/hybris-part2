@@ -66,7 +66,7 @@
     </context>
 
 
-    <context type="Question" component="editor-area" merge-by="type">
+    <context type="Question" component="editor-area">
         <editorArea:editorArea>
             <editorArea:essentials>
                 <editorArea:essentialSection name="Essential">
@@ -77,9 +77,9 @@
             <editorArea:tab name="Administration"/>
             <editorArea:tab name="QA">
                 <editorArea:section name="QA">
+                    <editorArea:attribute qualifier="approved"/>
                     <editorArea:attribute qualifier="question" label="Question"/>
                     <editorArea:attribute qualifier="answer" label="Answer"/>
-                    <editorArea:attribute qualifier="approved" label="Approved"/>
                 </editorArea:section>
             </editorArea:tab>
         </editorArea:editorArea>

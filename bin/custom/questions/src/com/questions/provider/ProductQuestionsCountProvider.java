@@ -1,12 +1,12 @@
 package com.questions.provider;
 
+import com.questions.model.QuestionModel;
 import de.hybris.platform.core.model.product.ProductModel;
 import de.hybris.platform.solrfacetsearch.config.IndexConfig;
 import de.hybris.platform.solrfacetsearch.config.IndexedProperty;
 import de.hybris.platform.solrfacetsearch.provider.FieldNameProvider;
 import de.hybris.platform.solrfacetsearch.provider.FieldValue;
 import de.hybris.platform.solrfacetsearch.provider.FieldValueProvider;
-import org.questions.model.QuestionModel;
 
 import javax.annotation.Resource;
 import java.io.Serializable;

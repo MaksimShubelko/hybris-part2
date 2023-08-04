@@ -5,7 +5,7 @@ import com.questions.dao.impl.QuestionDaoImpl;
 import com.questions.service.QuestionService;
 import de.hybris.platform.servicelayer.exceptions.ModelNotFoundException;
 import org.apache.log4j.Logger;
-import org.questions.model.QuestionModel;
+import com.questions.model.QuestionModel;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;

@@ -17,7 +17,7 @@
 
                 <c:set var="shownQuestons" value="0"/>
                 <c:forEach var="question" items="${questions}" varStatus="loop">
-                    <c:if test="${question.getApproved() == true and shownQuestions <= numberOfQuestionsToShow}">
+                    <c:if test="${question.isApproved() and shownQuestons < numberOfQuestionsToShow}">
                         <br>Q: ${question.getQuestion()}
                         <br>A: ${question.getAnswer()}
                         <br>

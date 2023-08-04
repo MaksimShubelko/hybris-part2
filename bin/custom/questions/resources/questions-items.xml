@@ -28,7 +28,7 @@
         <itemtype code="Question"
                   generate="true"
                   autocreate="true"
-                  jaloclass="org.questions.jalo.Question">
+                  jaloclass="com.questions.jalo.Question">
             <deployment table="Questions" typecode="30001"/>
             <attributes>
                 <attribute qualifier="code" type="java.lang.String">
@@ -55,8 +55,8 @@
                     <modifiers read="true" write="true" optional="true"/>
                 </attribute>
                 <attribute qualifier="approved" type="boolean">
-                    <modifiers read="true" write="true" optional="true"/>
                     <persistence type="property"/>
+                    <modifiers read="true" write="true" optional="true"/>
                 </attribute>
             </attributes>
         </itemtype>
@@ -66,7 +66,7 @@
                   generate="true"
                   autocreate="true"
                   abstract="false"
-                  jaloclass="org.questions.jalo.QuestionsCMSComponent">
+                  jaloclass="com.questions.jalo.QuestionsCMSComponent">
             <attributes>
                 <attribute qualifier="numberOfQuestionsToShow" type="java.lang.Integer">
                     <modifiers read="true" write="true" unique="false" optional="false"/>

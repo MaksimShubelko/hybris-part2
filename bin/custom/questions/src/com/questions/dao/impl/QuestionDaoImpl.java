@@ -4,7 +4,7 @@ import com.questions.dao.QuestionDao;
 import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
 import de.hybris.platform.servicelayer.search.FlexibleSearchService;
 import org.apache.log4j.Logger;
-import org.questions.model.QuestionModel;
+import com.questions.model.QuestionModel;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;

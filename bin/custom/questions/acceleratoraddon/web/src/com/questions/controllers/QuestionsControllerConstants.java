@@ -3,7 +3,7 @@
  */
 package com.questions.controllers;
 
-import org.questions.model.QuestionsCMSComponentModel;
+import com.questions.model.QuestionsCMSComponentModel;
 
 /**
  */
