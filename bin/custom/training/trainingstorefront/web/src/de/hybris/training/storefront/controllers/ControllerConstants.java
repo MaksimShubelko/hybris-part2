@@ -16,7 +16,7 @@ import de.hybris.platform.acceleratorcms.model.components.SimpleResponsiveBanner
 import de.hybris.platform.acceleratorcms.model.components.SubCategoryListComponentModel;
 import de.hybris.platform.cms2.model.contents.components.CMSLinkComponentModel;
 import de.hybris.platform.cms2lib.model.components.ProductCarouselComponentModel;
-import org.questions.model.QuestionsCMSComponentModel;
+import com.questions.model.QuestionsCMSComponentModel;
 
 
 /**

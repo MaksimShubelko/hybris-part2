@@ -1,12 +1,12 @@
 package com.questions.controllers.cms;
 
 import com.questions.controllers.QuestionsControllerConstants;
+import com.questions.model.QuestionsCMSComponentModel;
 import de.hybris.platform.addonsupport.controllers.cms.AbstractCMSAddOnComponentController;
 import de.hybris.platform.commercefacades.product.ProductFacade;
 import de.hybris.platform.commercefacades.product.ProductOption;
 import de.hybris.platform.commercefacades.product.data.ProductData;
 import de.hybris.platform.core.model.product.ProductModel;
-import org.questions.model.QuestionsCMSComponentModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,11 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-import static de.hybris.platform.commercefacades.product.ProductOption.CATEGORIES;
 import static de.hybris.platform.commercefacades.product.ProductOption.QUESTIONS;
 
 @Controller("QuestionsCMSComponentController")

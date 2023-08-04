@@ -1,0 +1,24 @@
+$contentCatalog=electronicsContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+$wideContent=CMSImageComponent,BannerComponent
+
+UPDATE GenericItem[processor=de.hybris.platform.commerceservices.impex.impl.ConfigPropertyImportProcessor];pk[unique=true]
+$jarResourceCms=jar:de.hybris.training.core.setup.CoreSystemSetup&/trainingcore/import/cockpits/cmscockpit
+$emailPackageName=com.questions.context
+$emailResource=jar:de.hybris.training.core.setup.CoreSystemSetup&/questions/import/email
+
+$lang=en
+
+INSERT_UPDATE RendererTemplate;code[unique=true];contextClass;rendererType(code)[default='velocity']
+                              ; trainingEmailBody; $emailPackageName.TrainingEmailContext
+                              ; trainingEmailSubject; $emailPackageName.TrainingEmailContext
+
+UPDATE RendererTemplate; code[unique=true]; description[lang=$lang]; templateScript[lang=$lang,translator=de.hybris.platform.commerceservices.impex.impl.FileLoaderValueTranslator]
+                       ; trainingEmailBody; "Training email body"  ; $emailResource/email-trainingEmailBody.vm
+                       ; trainingEmailSubject; "Training email subject"; $emailResource/email-trainingEmailSubject.vm
+
+INSERT_UPDATE EmailPageTemplate; $contentCV[unique=true]; uid[unique=true];name; active; frontendTemplateName; subject(code); htmlTemplate(code); restrictedPageTypes(code)
+                               ;;TrainingEmailTemplate; Training Email Template; true  ; TrainingEmail       ; trainingEmailSubject; trainingEmailBody;EmailPage
+
+INSERT_UPDATE EmailPage; $contentCV[unique=true]; uid[unique=true]; name; masterTemplate(uid,$contentCV); defaultPage; approvalStatus(code)[default='approved']; fromEmail[lang=en]; fromName[lang=en]
+;;TrainingEmail; Training Email; TrainingEmailTemplate; true;;programmersworldminsk@gmail.com; System
