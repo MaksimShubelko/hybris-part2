@@ -90,5 +90,26 @@
 
     <bean class="com.questions.context.TrainingEmailContext" id="trainingEmailContext" parent="abstractEmailContext" scope="prototype"/>
 
+    <bean class="com.questions.populator.WarrantyYearsPopulator" id="warrantyYearsPopulator"/>
+
+    <bean class="com.questions.populator.SearchResultWarrantyYearsPopulator"
+          parent="variantCommerceSearchResultProductPopulator"
+    id="searchResultWarrantyYearsPopulator"/>
+
+    <bean class="com.questions.provider.ProductWarrantyYearsProvider"
+          id="productWarrantyYearsProvider"/>
+
+    <bean class="com.questions.provider.ProductWarrantyYearsFacetDisplayNameProvider"
+          id="productWarrantyYearsFacetDisplayNameProvider"/>
+
+    <bean parent="modifyPopulatorList">
+        <property name="list" ref="commerceSearchResultProductConverter"/>
+        <property name="add" ref="searchResultWarrantyYearsPopulator"/>
+    </bean>
+
+    <bean parent="modifyPopulatorList">
+        <property name="list" ref="productConverter"/>
+        <property name="add" ref="warrantyYearsPopulator"/>
+    </bean>
 
 </beans>

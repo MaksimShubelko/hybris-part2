@@ -84,5 +84,15 @@
             </editorArea:tab>
         </editorArea:editorArea>
     </context>
+    
+    <context type="Product" merge-by="type" component="editor-area">
+        <editorArea:editorArea>
+            <editorArea:tab name="hmc.tab.product.warranty" position="1">
+                <editorArea:section name="hmc.section.product.warranty">
+                    <editorArea:attribute qualifier="warrantyYears" label="Warranty years"/>
+                </editorArea:section>
+            </editorArea:tab>
+        </editorArea:editorArea>
+    </context>
 
 </config>
