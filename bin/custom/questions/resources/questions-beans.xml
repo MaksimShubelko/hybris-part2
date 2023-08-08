@@ -23,13 +23,19 @@
 		<property name="questionCustomer" type="de.hybris.platform.commercefacades.user.data.CustomerData"/>
 		<property name="answer" type="String"/>
 		<property name="answerCustomer" type="de.hybris.platform.commercefacades.user.data.CustomerData"/>
+		<property name="approved" type="boolean"/>
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.product.data.ProductData">
 		<property name="questions" type="java.util.List&lt;com.questions.data.QuestionData&gt;"/>
 		<property name="questionsCount" type="Integer"/>
+		<property name="warrantyYears" type="Integer"/>
 	</bean>
 
+	<bean class="com.questions.data.ProductData">
+		<property name="questions" type="java.util.List&lt;com.questions.data.QuestionData&gt;"/>
+		<property name="questionsCount" type="Integer"/>
+	</bean>
 	<enum class="de.hybris.platform.commercefacades.product.ProductOption">
 		<value>QUESTIONS</value>
 	</enum>

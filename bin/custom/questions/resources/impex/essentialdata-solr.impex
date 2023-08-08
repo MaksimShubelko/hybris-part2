@@ -46,3 +46,13 @@ INSERT_UPDATE SolrSortField; sort(indexedType(identifier),code)[unique=true]; fi
 
 INSERT_UPDATE SolrIndexedType; identifier[unique=true]; type(code); variant; sorts(&sortRefID)
                              ; $solrIndexedType       ; Product   ; false  ; sortRef1,sortRef2
+
+#Warranty
+INSERT_UPDATE SolrIndexedProperty;solrIndexedType(identifier)[unique=true];name[unique=true];type(code);sortableType(code);currency[default=false];localized[default=false];multiValue[default=false];facet[default=true];facetType(code);facetSort(code);priority;visible;useForSpellchecking[default=false];useForAutocomplete[default=false];fieldValueProvider            ;facetDisplayNameProvider                         ;customFacetSortProvider;topValuesProvider;
+                                 ;$solrIndexedType                        ; warrantyYears   ;int       ; int              ;                       ;                        ;false                    ;                   ;MultiSelectOr  ;Alpha          ; 5000   ;true   ;                                  ;                                 ; productWarrantyYearsProvider ; productWarrantyYearsFacetDisplayNameProvider    ;                       ;
+
+INSERT_UPDATE SolrSearchQueryProperty;indexedProperty(name, solrIndexedType(identifier))[unique=true]  ;facet[default=true]   ;facetType(code);priority   ;facetDisplayNameProvider                     ;facetSortProvider                        ;facetTopValuesProvider    ;includeInResponse[default=true];searchQueryTemplate(name, indexedType(identifier))[unique=true][default=DEFAULT:$solrIndexedType]
+                                     ;warrantyYears:$solrIndexedType                             ;	                  ;MultiSelectOr  ;5000	      ;productWarrantyYearsFacetDisplayNameProvider ; distanceAttributeSortProvider			  ;	defaultTopValuesProvider ;                               ;
+
+UPDATE SolrIndexedProperty; solrIndexedType(identifier)[unique=true]; name[unique=true]  ; displayName
+                          ; $solrIndexedType                   ; warrantyYears ; "Warranty"

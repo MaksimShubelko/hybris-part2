@@ -302,5 +302,6 @@
     <extension name='ywebservices' />
     <extension name='orbeonweb' />
     <extension name='questions'/>
+    <extension name='personalization'/>
   </extensions>
 </hybrisconfig>

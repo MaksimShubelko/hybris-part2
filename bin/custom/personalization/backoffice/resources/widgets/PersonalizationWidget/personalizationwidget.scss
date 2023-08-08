@@ -1,0 +1,13 @@
+@charset "utf-8";
+@import "./support/personalizationwidget-variables.scss";
+
+.yw-labelstyle
+{
+	color: $personalization-label-text-color;
+}
+
+.personalization-container {
+	background: $personalization-container-background;
+	font-family: $personalization-container-font-family;
+	font-size: $personalization-container-font-size;
+}

@@ -1,5 +1,6 @@
 package com.questions.provider;
 
+import com.questions.model.QuestionModel;
 import de.hybris.platform.core.model.product.ProductModel;
 import de.hybris.platform.solrfacetsearch.config.IndexConfig;
 import de.hybris.platform.solrfacetsearch.config.IndexedProperty;
@@ -43,6 +44,9 @@ public class ProductQuestionsCountProvider implements FieldValueProvider, Serial
     }
 
     private int getQuestionsCount(ProductModel product) {
-        return product.getQuestions().size();
+        return (int) product.getQuestions()
+                .stream()
+                .filter(QuestionModel::isApproved)
+                .count();
     }
 }

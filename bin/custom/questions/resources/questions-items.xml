@@ -9,6 +9,10 @@
 <items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="items.xsd">
 
+    <collectiontypes>
+        <collectiontype code="QuestionsList" elementtype="Question" generate="true" type="list"/>
+    </collectiontypes>
+
     <relations>
         <relation code="Product2Question" localized="false">
             <sourceElement type="Product" qualifier="product" cardinality="one">
@@ -24,7 +28,7 @@
         <itemtype code="Question"
                   generate="true"
                   autocreate="true"
-                  jaloclass="org.questions.jalo.Question">
+                  jaloclass="com.questions.jalo.Question">
             <deployment table="Questions" typecode="30001"/>
             <attributes>
                 <attribute qualifier="code" type="java.lang.String">
@@ -50,6 +54,10 @@
                     <persistence type="property"/>
                     <modifiers read="true" write="true" optional="true"/>
                 </attribute>
+                <attribute qualifier="approved" type="boolean">
+                    <persistence type="property"/>
+                    <modifiers read="true" write="true" optional="true"/>
+                </attribute>
             </attributes>
         </itemtype>
 
@@ -58,8 +66,7 @@
                   generate="true"
                   autocreate="true"
                   abstract="false"
-                  jaloclass="org.questions.jalo.QuestionsCMSComponent">
-            <deployment table="QuestionsCMSComponent" typecode="30002"/>
+                  jaloclass="com.questions.jalo.QuestionsCMSComponent">
             <attributes>
                 <attribute qualifier="numberOfQuestionsToShow" type="java.lang.Integer">
                     <modifiers read="true" write="true" unique="false" optional="false"/>
@@ -69,6 +76,50 @@
                 <attribute qualifier="fontSize" type="java.lang.Integer">
                     <modifiers read="true" write="true" unique="false" optional="false"/>
                     <defaultvalue>16</defaultvalue>
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="SendQuestionsCronJob"
+                  extends="CronJob"
+                  autocreate="true"
+                  generate="true"
+                  jaloclass="com.questions.jalo.SendQuestionsCronJob">
+            <attributes>
+                <attribute qualifier="emailAddressSendTo" type="java.lang.String">
+                    <modifiers read="true" write="true" unique="false" optional="false"/>
+                    <defaultvalue>shubelkom@gmail.com</defaultvalue>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="lastRunnedTime" type="java.util.Date">
+                    <modifiers read="true" write="true" optional="true"/>
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="TrainingEmailProcess"
+                  autocreate="true"
+                  generate="true"
+                  jaloclass="com.questions.jalo.TrainingEmailProcess"
+                  extends="StorefrontCustomerProcess">
+            <attributes>
+                <attribute qualifier="emailAddressSendTo" type="java.lang.String">
+                    <modifiers read="true" write="true" unique="false" optional="true"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="questions" type="QuestionsList">
+                    <modifiers read="true" write="true" unique="false" optional="true"/>
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="Product" autocreate="false" generate="false">
+            <attributes>
+                <attribute qualifier="warrantyYears" type="java.lang.Integer">
+                    <modifiers write="true" read="true" search="true" optional="true"/>
                     <persistence type="property"/>
                 </attribute>
             </attributes>
